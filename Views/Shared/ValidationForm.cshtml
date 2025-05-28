@@ -1,0 +1,76 @@
+﻿@model TPLOCAL1.Models.PersonalInformation
+<header>
+    <link rel="stylesheet"  href="~/resources/Index.css"/>
+    <title>Page de validation</title>
+    <img src="~/resources/GroupeHN.png " class="image" alt="GroupeHN" />
+    <h1>Page de validation</h1>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste avis</a></li>
+        </ul>
+    </nav>
+    <div class="section-title">Votre formulaire a bien été pris en compte</div>
+    <br/><table>
+        <caption>Informations personnelles</caption>
+    <tbody>
+        
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Name)</th>
+            <td class="form-label">@Model.Name</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Forename)</th>
+            <td class="form-label">@Model.Forename</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Gender)</th>
+            <td class="form-label">@Model.Gender</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Address)</th>
+            <td class="form-label">@Model.Address</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.ZipCode)</th>
+            <td class="form-label">@Model.ZipCode</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Town)</th>
+            <td class="form-label">@Model.Town</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.EmailAddress)</th>
+            <td class="form-label">@Model.EmailAddress</td>
+        </tr>
+    </tbody>
+    </table>
+    <br/><table>
+    <caption>Informations formation suivie</caption>
+    <tbody>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.StartDate)</th>
+            <td class="form-label">@Model.StartDate.ToString("dd/MM/yyyy")</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.TypeOfTraining)</th>
+            <td class="form-label">@Model.TypeOfTraining</td>
+        </tr>
+    </tbody>
+    </table>
+    <br/><table>
+        <caption>Avis sur la formation</caption>
+        <tbody>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.CobolReview)</th>
+            <td class="form-label">@Model.CobolReview</td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.CsharpReview)</th>
+            <td class="form-label">@Model.CsharpReview</td>
+        </tr>    
+        </tbody>
+    </table>
+</body>

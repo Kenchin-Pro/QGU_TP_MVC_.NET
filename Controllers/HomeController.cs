@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Mvc;
 
 using TPLOCAL1.Models;
 
@@ -23,6 +24,7 @@ namespace TPLOCAL1.Controllers
                 {
                     case "OpinionList":
                         //TODO : code reading of the xml files provide
+                        OpinionList();
                         return View(id);
                     case "Form":
                         //TODO : call the Form view with data model empty
@@ -37,13 +39,31 @@ namespace TPLOCAL1.Controllers
 
         //methode to send datas from form to validation page
         [HttpPost]
-        public ActionResult ValidationFormulaire(/*model*/)
+        public ActionResult ValidationFormulaire(PersonalInformation model)
         {
             //TODO : test if model's fields are set
             //if not, display an error message and stay on the form page
             //else, call ValidationForm with the datas set by the user
-            return null;
+            if (model.StartDate > new DateTime(2021, 1, 1))
+            {
+                ModelState.AddModelError("StartDate", "The date must be before 01/01/2021.");
+            }
+            if (!ModelState.IsValid)
+            {
+                // ↪ Affiche les erreurs et revient sur le formulaire
+                return View("Form", model);
+            }
+            return View("ValidationForm", model); 
 
+        }
+
+        public IActionResult OpinionList()
+        {
+            OpinionList opinionReader = new OpinionList();
+
+            List<Opinion> list = opinionReader.GetAvis("D:\\Prog\\Formation\\MVC\\TPLOCAL1-base\\XlmFile\\DataAvis.xml");  
+
+            return View(list);
         }
     }
 }

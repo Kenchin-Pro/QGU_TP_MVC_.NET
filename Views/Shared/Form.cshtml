@@ -1,0 +1,182 @@
+﻿@model TPLOCAL1.Models.PersonalInformation
+<header>
+    <link rel="stylesheet"  href="~/resources/Index.css"/>
+    <title>Formulaire</title>
+    <img src="~/resources/GroupeHN.png " class="image" alt="GroupeHN" />
+    <h1>Formulaire TP HN avis</h1>
+</header>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste avis</a></li>
+        </ul>
+    </nav>
+    <br/>
+    <form asp-action="ValidationFormulaire" method="post" class="table table-bordered">
+    <table>
+        <caption>Informations personnelles</caption>
+    <tbody>
+        
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Name)</th>
+            <td class="form-input"><input asp-for="Name"/></td>
+            <td class="error"><span asp-validation-for="Name" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Forename)</th>
+            <td class="form-input"><input asp-for="Forename"/></td>
+            <td class="error"><span asp-validation-for="Forename" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Gender)</th>
+            <td class="form-input">
+                <select asp-for="Gender">
+                    <option>Select a gender</option>
+                    <option>Man</option>
+                    <option>Woman</option>
+                    <option>Other</option>
+                </select>
+            </td>
+            <td class="error"><span asp-validation-for="Gender" class="text-danger"></span></td>
+            
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Address)</th>
+            <td class="form-input"><input asp-for="Address"/></td>
+            <td class="error"><span asp-validation-for="Address" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.ZipCode)</th>
+            <td class="form-input"><input asp-for="ZipCode" /></td>
+            <td class="error"><span asp-validation-for="ZipCode" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.Town)</th>
+            <td class="form-input"><input asp-for="Town" /></td>
+            <td class="error"><span asp-validation-for="Town" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.EmailAddress)</th>
+            <td class="form-input"><input asp-for="EmailAddress" /></td>
+            <td class="error"><span asp-validation-for="EmailAddress" class="text-danger"></span></td>
+        </tr>
+    </tbody>
+    </table>
+    
+    <br/><table>
+    <caption>Informations formation suivie</caption>
+    <tbody>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.StartDate)</th>
+            <td class="form-input"><input type="date" asp-for="StartDate"/></td>
+            <td class="error"><span asp-validation-for="StartDate" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.TypeOfTraining)</th>
+            <td class="form-input">
+                <select asp-for="TypeOfTraining">
+                <option>Select a course</option>
+                <option>Cobol Training</option>
+                <option>Object Training</option>
+                <option>Dual Skills Training</option>
+                </select>
+            </td>
+            <td class="error"><span asp-validation-for="TypeOfTraining" class="text-danger"></span></td>
+        </tr>
+    </tbody>
+    </table>
+    <br/><table>
+        <caption>Avis sur la formation</caption>
+        <tbody>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.CobolReview)</th>
+            <td class="form-input"><input asp-for="CobolReview"/></td>
+            <td class="error"><span asp-validation-for="CobolReview" class="text-danger"></span></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(m => m.CsharpReview)</th>
+            <td class="form-input"><input asp-for="CsharpReview" /></td>
+            <td class="error"><span asp-validation-for="CsharpReview" class="text-danger"></span></td>
+        </tr>    
+        </tbody>
+    </table>
+    <br /><button type="submit">Valider</button>
+    </form>
+    <!--
+    <form asp-action="ValidationFormulaire" method="post" class="table table-bordered">
+        <div class="section-title">Informations personnelles</div>
+            <div class="form-row">
+                <label asp-for="Name" class="form-input"></label>
+                <input asp-for="Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="Forename" class="form-input"></label>
+                <input asp-for="Forename" class="form-input"/>
+                <span asp-validation-for="Forename" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="Gender" class="form-input"></label>
+                <select asp-for="Gender" class="form-input">
+                <option>Select a gender</option>
+                <option>Man</option>
+                <option>Woman</option>
+                <option>Other</option>
+            </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="Address" class="form-input"></label>
+                <input asp-for="Address"  class="form-input"/>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="ZipCode" class="form-input"></label>
+                <input asp-for="ZipCode"  class="form-input"/>
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="Town" class="form-input"></label>
+                <input asp-for="Town"  class="form-input"/>
+                <span asp-validation-for="Town" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="EmailAddress" class="form-input"></label>
+                <input asp-for="EmailAddress"  class="form-input"/>
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="section-title">Informations formation suivie</div>
+            <div class="form-row">
+                <label asp-for="StartDate" class="form-input"></label>
+                <input type="date" asp-for="StartDate" class="form-input"/>
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="TypeOfTraining" class="form-input"></label>
+                <select asp-for="TypeOfTraining">
+                <option>Select a course</option>
+                <option>Cobol Training</option>
+                <option>Object Training</option>
+                <option>Dual Skills Training</option>
+            </select>
+                <span asp-validation-for="TypeOfTraining" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="section-title">Avis sur la formation</div>
+            <div class="form-row">
+                <label asp-for="CobolReview" class="form-input"></label>
+                <input asp-for="CobolReview" />
+                <span asp-validation-for="CobolReview" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <label asp-for="CsharpReview" class="form-input"></label>
+                <input asp-for="CsharpReview" />
+                <span asp-validation-for="CsharpReview" class="text-danger"></span>
+            </div>
+
+            <button type="submit">Valider</button>
+        </form>
+        -->
+</body>
