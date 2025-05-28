@@ -61,7 +61,8 @@ namespace TPLOCAL1.Controllers
         {
             OpinionList opinionReader = new OpinionList();
 
-            List<Opinion> list = opinionReader.GetAvis("D:\\Prog\\Formation\\MVC\\TPLOCAL1-base\\XlmFile\\DataAvis.xml");  
+            List<Opinion> list = opinionReader.GetAvis("XlmFile\\DataAvis.xml");
+
 
             return View(list);
         }
